@@ -1,0 +1,112 @@
+/* switch button */
+#label-btn{
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+}
+.show-label-btn{
+    visibility: visible!important;
+}
+.switch-track{
+    width: 1.8rem;
+    height: .95rem;
+    border-radius: 5rem;
+    background-color: rgb(190, 190, 190);
+    -webkit-border-radius: 5rem;
+    -moz-border-radius: 5rem;
+    -ms-border-radius: 5rem;
+    -o-border-radius: 5rem;
+    display: inline-block;
+}
+.switch-thumb{
+    width: .9rem;
+    height: 100%;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    background-color: rgb(158, 157, 157);
+    border: .5px solid whitesmoke;
+
+    display: block;
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    -ms-transition: transform .5s;
+    -o-transition: transform .5s;
+}
+.active-switch{
+    background-color: rgb(139, 205, 231);
+}
+.active-switch .switch-thumb{
+    background-color: rgb(34, 116, 194);
+
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+}
+
+.switch-track:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+/* drop-down-menu */
+
+#drop-down-menu{
+    width: 2.5rem;
+    height: 1rem;
+    background-color: rgb(214, 214, 214);
+    border: 1px solid whitesmoke;
+    display: inline-block;
+    position: relative;
+    margin-left: .65rem;
+    text-align: center;
+    border-radius: .2rem;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+    -ms-border-radius: .2rem;
+    -o-border-radius: .2rem;
+}
+
+#drop-down-menu .drop-down-content{
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: rgb(173, 173, 173);
+    z-index: 9;
+}
+.drop{
+    width: 100%;
+    font-size: .9rem;
+    display: block;
+    padding: .2rem .3rem;
+}
+
+.value{
+    text-align: center;
+    font-size: .75rem;   
+    padding: 0;
+}
+#drop-down-menu:hover{
+    cursor:pointer;
+}
+#drop-down-menu:hover .drop-down-content{
+    display: block;
+}
+
+.drop:hover{
+    background-color: rgb(231, 231, 231);
+}
+
+#theme-change{
+    margin: 0 .5rem;
+    cursor: pointer;
+}

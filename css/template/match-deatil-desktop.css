@@ -1,0 +1,30 @@
+@media screen and (min-width : 600px) {
+    .scores .team .s2 {
+        font-size: 1rem;
+    }
+    .sub-head2 {
+        font-size: .9rem;
+    }
+    .match-main{
+        background-color: rgb(197, 213, 245);
+    }
+    .toss-detail{
+        font-size: .75rem;
+    }
+    .sub-head3{
+        font-size: .7rem;
+    }
+    .sub-head4{
+        font-size: .9rem;
+    }
+
+    .scores .team{
+        grid-template-columns: .45fr .05fr .5fr;
+    }
+}
+
+@media screen and (min-width : 1200px) {
+    .playing-11-container{
+        min-height: 93vh;
+    }
+}

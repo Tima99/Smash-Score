@@ -1,0 +1,291 @@
+
+/* match-detail-card-container */
+.full-match-card-container{
+    flex-direction: column;
+}
+.full-match-card-container .match-summary-container div{
+    margin: .1rem .3rem;
+    /* background-color: green; */
+}
+.head{
+    font-size: 1.1rem;
+    font-family: var(--font1);
+}
+.sub-head{
+    font-size: 1rem;
+    font-family: var(--font2);
+}
+.sub-head1{
+    font-size: .9rem;
+    font-family: var(--font3);
+}
+.sub-head2{
+    font-size: .75rem;
+    font-family: var(--font4);
+}
+.sub-head3{
+    font-size: .7rem;
+    font-family: var(--font2);
+}
+.sub-head4{
+    font-size: .8rem;
+}
+.venue-name{
+    font-size: .6rem;
+    color: grey;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.match-btw-container{
+    font-weight: bold;
+}
+.toss-detail{
+    color: grey;
+}
+.match-status{
+    color: tomato;
+}
+.match-main{
+    padding: .2rem;
+    background-color: rgb(246, 246, 246);
+}
+.scores{
+    padding: .1rem 0;
+}
+.scores .team{
+    align-items: center; 
+    display: grid;
+    grid-template-columns: .3fr .01fr .69fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "name seperator score"
+}
+.team .teamnm{
+    grid-area: name;
+    justify-self: flex-end;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.team .seperator{
+    grid-area: seperator;
+    padding-left: .2rem;
+    justify-self: center;
+}
+.team .scr{
+    grid-area: score;
+    justify-self: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.scores .team .s1-low{
+    font-size: .7rem;
+    color: gray;
+    opacity: .6;
+}
+.scores .team .s2, .s1{
+    font-size: .85rem;
+}
+.strike{
+    color: navy;
+    color: blue;
+}
+.strike-batsman{
+    margin-right: .4rem;
+    display: block;
+    padding-right: .4rem;
+    border-right: 1px solid grey;
+}
+.recent-ovr-container{
+    padding: .3rem 0;
+}
+.recent-ovr{
+    flex-wrap: wrap;
+}
+.recent-ovr-container .rpb, .guess-content span{
+    position: relative;
+    margin: .1rem .3rem;
+    display: inline-block;
+    background-color: red;
+    width : 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    font-size: .7rem;
+    background-color: rgb(163, 163, 163);
+    cursor: pointer;
+}
+.rpb.four , .guess-content .four:hover{
+    background-color: rgb(41, 159, 238);
+}
+.rpb.W , .guess-content .W:hover{
+    background-color: rgb(240, 90, 90);
+}
+.rpb.dot , .guess-content .dot:hover{
+    background-color: rgba(149, 149, 149, 0.5);
+}
+.rpb.run , .guess-content .run:hover{
+    background-color: rgb(218, 186, 250);
+}
+.rpb.six , .guess-content .six:hover{
+    background-color: rgb(12, 161, 161);
+}
+.rpb.wd{
+    background-color: rgb(226, 226, 226);
+    font-size: .55rem;
+}
+.rpb.nb{
+    background-color: rgb(236, 130, 166);
+}
+.play-ball{
+    background-color: red;
+    animation: scaleBlink 1s .5s infinite alternate ease-out;
+    -webkit-animation: scaleBlink 1s .5s infinite alternate ease-out;
+}
+
+/* guess game bar */
+.guess-content{
+    position: absolute;
+    top: 0;
+    background-color: rgba(75, 122, 214,.9);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .2rem;
+    border-radius: .9rem;
+    transform: translate(0, -2.4rem);
+    -webkit-transform: translate(0, -2.4rem);
+    -moz-transform: translate(0, -2.4rem);
+    -ms-transform: translate(0, -2.4rem);
+    -o-transform: translate(0, -2.4rem);
+    -webkit-border-radius: .9rem;
+    -moz-border-radius: .9rem;
+    -ms-border-radius: .9rem;
+    -o-border-radius: .9rem;
+    border: 1px solid rgb(36, 36, 194);
+}
+.rbp-select-for-guess{
+    animation: scaleBlink .2s 1 alternate ease-out;
+    -webkit-animation: scaleBlink .2s 1 alternate ease-out;
+}
+.guess-content::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(75, 122, 214, 1);
+    border: 1px solid rgb(36, 36, 194);
+    border-left: none;
+    border-bottom: none;
+
+    box-sizing: border-box;
+    z-index: -1;
+    width: .67rem;
+    height: .67rem;
+    transform-origin: 50% 100%;
+    transform: rotate(135deg) translateY(.435em);
+    -webkit-transform: rotate(135deg) translateY(.435em);
+    -moz-transform: rotate(135deg) translateY(.435em);
+    -ms-transform: rotate(135deg) translateY(.435em);
+    -o-transform: rotate(135deg) translateY(.435em);
+}
+.guess-txt{
+    font-size: .7rem;
+    color: white;
+    user-select: none;
+}
+
+
+@keyframes scaleBlink {
+    from{
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        transform: scale(.65);
+        -webkit-transform: scale(.65);
+        -moz-transform: scale(.65);
+        -ms-transform: scale(.65);
+        -o-transform: scale(.65);
+        opacity: .5;
+}
+}
+
+.last-wk-container{
+    font-family: var(--font4);
+    color: rgba(0,0,0,1);
+}
+.match-submation{
+    font-family: var(--font2);
+    color: rgb(46, 46, 250);
+    font-size: .8rem;
+    padding: .2rem 0;
+}
+
+.commentary-container{
+    margin: .1rem .3rem;
+}
+.over-com-contain{
+    background-color: rgb(229, 237, 253);
+    padding: .4rem;
+    
+}
+.sumary{
+    font-family: var(--font2);
+    text-transform: uppercase;
+    font-weight: 300;
+
+    animation: blink 1s .3s 1 alternate;
+    -webkit-animation: blink 1s .3s 1 alternate;
+}
+@keyframes blink {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1 ;
+    }
+}
+.comentary{
+    font-family: var(--font2);
+    text-transform: none;
+    font-weight: 100;
+    color: rgb(47, 47, 47);
+}
+.bowTobat{
+    font-family: var(--font4);
+}
+
+.scr-comentary-box{
+    min-width: 100%;
+    scroll-snap-align: start;
+    position: relative;
+}
+.match-head{
+    position: relative;
+}
+.refresh-detail{
+    cursor: pointer;
+    display: inline-block;
+}
+.refresh-detail img{
+    width: 18px;
+    height: 18px;
+}
+
+
+
+
+

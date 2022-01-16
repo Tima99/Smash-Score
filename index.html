@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="blue">
+
+    <link rel="shortcut icon" href="favicon.ico?v="+ Math.trunc(Math.random()*999) type="image/x-icon">
+    <title>Smash Score - Cricket Score In Hand</title>
+
+
+    <script>
+            if(this.innerWidth <= 600){
+                const metaTag = this.document.createElement('meta')
+                metaTag.setAttribute('name', 'viewport')
+                metaTag.setAttribute('content', 'width=device-width, initial-scale=1.0') 
+                this.document.head.insertAdjacentElement('afterbegin', metaTag);
+            }    
+    </script>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/navigation.css">
+    <link rel="stylesheet" href="./css/content.css">
+    <link rel="stylesheet" href="./css/subheader.css">
+    <link rel="stylesheet" href="./css/template/inshort-match.css">
+    <link rel="stylesheet" href="./css/template/match-detail-template.css">
+    <link rel="stylesheet" href="./css/template/playing-11.css">
+    <link rel="stylesheet" href="./css/template/match-deatil-desktop.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <link rel="stylesheet" href="./css/media-desktop.css">
+
+    <script src="./js/ux.m.js" defer async></script>
+    <script src="./js/UI/infinite-dates.js" defer async></script>
+    <script src="./js/UI/navigation.js" defer async></script>
+    <script src="./js/UI/subheader.js" defer async></script>
+    <script src="./js/templates/match-manifest-template.js" defer async></script>
+    <script src="./js/Request/match-detail.js" type="module" async></script>
+    <script src="./js/Request/matches-by-date.js"  async></script>
+    <script src="./js/Request/live-matches.js"    async></script>
+
+</head>
+<body>
+    
+    <div class="layout-container">
+        <!--  header -->
+        <div class="header header-bar layout-item header-m">
+                <img src="./assets/ss_smash-score.jpg" alt="" width="26px" height="26px">
+                <div class="app-name" style="margin-left: .2rem;"> Smash Score</div>
+        </div>
+
+        <!-- sub header -->
+        <div class="sub-header header-bar layout-item header-m">
+            <input type="checkbox" name="refresh" id="auto-refresh" style="display:none;">
+            <label for="auto-refresh" id="label-btn">
+                <div class="switch-track ">
+                    <span class="switch-thumb"></span>
+                </div>
+
+                <div id="drop-down-menu" class="refresh-time">
+                    <div class='value drop'>10s</div>
+                    <div class="drop-down-content">
+                        <span class='drop-1 drop'>5s</span>
+                        <span class='drop-2 drop'>10s</span>
+                        <span class='drop-3 drop'>15s</span>
+                        <span class='drop-3 drop'>20s</span>
+                        <span class='drop-4 drop'>40s</span>
+                    </div>
+                </div>
+            </label>
+            <input type="checkbox" name="theme-change" id="theme-change" onclick="ChangeTheme(this)">
+        </div>
+
+        <!-- content -->
+        <div class="content layout-item">
+            <!-- matches show  -->
+            <div class="inshort-matches-container active-content-dis">
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+
+            </div>
+            <!-- container for full match description -->
+            <div class="full-match-card-container">
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+                <div class="skeleton">
+                    <div class="scale"><span class="loader"></span></div>
+                    <div class="scale scale-20"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-35"><span class="loader"></span></div>
+                    <div class="scale scale-75"><span class="loader"></span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- navigation -->
+        <div class="navigation navigation-m layout-item">
+            <div class="nav1 dates-container vertical-dates-bar">
+            </div>
+
+            <div class="nav2 icons-container active-nav-container">
+                <div class="live-match-icon center icon center active-icon">
+                        <img src="./assets/live-streaming.png" alt="🔴" width="32px" height="30px">
+                </div>
+                <div class="drop-dates-btn center icon"> 
+                    <span class="icon-contain icon-shadow">
+                        <img src="./assets/calendar.png" alt="📅" width="26px" height="26px">
+                    </span>
+                </div>
+                <!-- <div class="starred-icon center icon">
+                    <img src="./assets/star.png" alt="⭐" width="26px" height="26px">
+                </div> -->
+            </div>            
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+
+@media screen and (max-width: 1200px) {
+    /* content-container */
+    .full-match-card-container{
+        flex: 1 1 !important;
+        min-height: 100vh;
+        background-color: white;
+    }    
+    .navigate-buttons button.right{
+        left: 77vw;
+    }
+}
+
+@media screen and (max-width:600px){
+    .layout-container{
+        grid-template-rows: 8% 92%;
+        grid-template-columns: .4fr .65fr;
+        grid-template-areas: 
+        "header subheader"
+        "content content"
+        "navigation navigation"
+    }
+  
+    .header .app-name{
+        font-size: .8rem;
+    }
+    .header-bar.header-m{
+        position: fixed;
+        top: 0;
+        height: 8vh;
+        z-index: 9999;
+    }
+    .header{
+        width: 40%;
+    }
+    .sub-header{
+        width: 60%;
+        right: 0;
+    }
+
+    .content{
+        align-items: flex-start;
+    }
+
+    /* navigation for mobile */
+    .navigation-m{
+        border-top: 1px solid rgb(200, 199, 199);
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        height: 8%;
+    }
+    .nav1 .date.active-click .date-text{
+        animation: blink 2s linear infinite alternate ;
+        -webkit-animation: blink 2s linear infinite alternate ;
+}
+    /* date container in mobile date bar in horizontal*/
+    .nav2.icons-container{
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .horizontal-dates-bar{
+        display: flex;
+        align-items: center;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 99;
+        visibility: hidden;
+        scroll-behavior: auto;
+    } 
+    
+    .move-calendar-icon{
+        /*class add when dates-container visible*/
+
+        visibility: visible;
+        background-color: rgb(247, 247, 247) !important;
+        border: 1px solid rgb(200, 199, 199) !important;
+        border-bottom: none;
+        padding: .2rem .25rem;
+        border-radius: .5rem .5rem 0 0;
+        -webkit-border-radius: .5rem .5rem 0 0;
+        -moz-border-radius: .5rem .5rem 0 0;
+        -ms-border-radius: .5rem .5rem 0 0;
+        -o-border-radius: .5rem .5rem 0 0;
+        position: fixed;
+        bottom: 7.8%;
+        right: 5vw;
+        z-index: 999;
+        filter: none;
+        -webkit-filter: none;
+}
+    .move-calendar-icon-hide{
+        visibility: hidden;
+    }
+
+    /* playing-11 navigation buttons */
+    .navigate-buttons button.right{
+        left: 90vw !important;
+    }
+
+    .ytb,.ytbo{
+        right: 1rem;
+    }
+
+}

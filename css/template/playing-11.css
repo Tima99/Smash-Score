@@ -1,0 +1,270 @@
+.playing-11-container{
+    width: 100%;
+    position: relative;
+    /* padding-bottom: 25%; */
+    min-height: 100vh;
+    scroll-snap-align: start;
+}
+.playing-11-container .play11-contain{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    min-height: 60vh;
+}
+.playing-11-container .team{
+    border-right: 1px solid rgb(185, 185, 185);
+    overflow: hidden;
+    min-width: 100%;
+    scroll-snap-align: start;
+}
+.playing-11-container .team:last-child{
+    border: none;
+}
+.playing-11-container .team .t-nm{
+    font-family: var(--font1);
+    font-weight: bold;
+    margin-bottom: .2rem;
+    color: black!important;
+    padding-top: .1rem;
+}
+.playing-11-container .team .playing-players div{
+    color: rgb(54, 54, 54);
+    font-family: var(--font3);
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 .2rem;
+    text-overflow: ellipsis;
+    font-size: .9rem;
+}
+
+.yet-to-bat{
+    font-size: .62rem;
+    font-family: var(--font2);
+    float: right;
+    margin-right: .4rem;
+    color: navy;
+}
+
+/* header grid
+    Name     R(B)  4's  6's
+*/
+.col-info-section {
+    background-color: rgb(250, 180, 50);
+    display: grid;
+    grid-template-columns: .5fr .2fr .1fr .1fr .2fr;
+    grid-template-columns: .4fr .2fr .12fr .08fr .2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "nm run-ball four six sr";
+    cursor: pointer;
+    user-select: none;
+}
+
+.col-info-section .ply-nm{
+    margin-left: .3rem;
+}
+.col-info-section{
+    font-family: var(--font2);
+}
+
+/* player grid
+    V kholi     100(80)  7  1
+*/
+.ply-info-section{
+    display: grid;
+    grid-template-columns: .4fr .2fr .12fr .08fr .2fr;
+    grid-template-rows: 1fr 0fr;
+    grid-template-areas: "nm run-ball four six sr" "outby outby outby outby outby";
+}
+.ply-info-section.outply:hover{
+    grid-template-rows: 1fr 1fr;
+}
+.ply-info-section:hover .outby{
+    display: inline-block;
+}
+.ply-info-section:hover{
+    box-shadow: 0 0 .2rem rgba(0,0,0,.3);
+}
+.ply-nm{
+    grid-area: nm;
+    display: flex;
+    flex-direction: column;
+    padding: .1rem 0;
+    padding-left: .3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.bat-stats{
+    padding: .1rem 0;
+}
+.run-ball{
+    grid-area: run-ball;
+    text-align: center;
+}
+.four{
+    grid-area: four;
+    text-align: center;
+}   
+.six{
+    grid-area: six;
+    text-align: center;
+}
+.sr{
+    grid-area: sr;
+    text-align: center;
+}
+
+.playing-players{
+    position: relative;
+}
+.ytb, .ytbo{
+    position: absolute;
+    right: 2.5rem;
+    font-size: .7rem;
+    color: blue;
+    visibility: visible;
+}
+
+.bat{
+    visibility: hidden;
+}
+
+.bat.ytb{
+    visibility: hidden;
+}
+
+
+.ytbo{
+    visibility: hidden;
+}
+
+/* navigate buttons */
+
+.navigate-buttons{
+    position: absolute;
+    bottom: 60%;
+}
+.navigate-buttons button{
+    border: none;
+    background-color: transparent;
+}
+.navigate-buttons button.left{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+.navigate-buttons button.right{
+    position: absolute;
+    left: 46vw;
+}
+.navigate-buttons img{
+    width:  30px;
+    height: 30px;
+    float: right;
+    cursor: pointer;
+    margin: 0 .2rem;
+    padding: .5rem;
+    opacity: .4;
+    background-color: rgba(0,0,0,.4);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.navigate-buttons img:hover{
+    opacity: 1;
+}
+
+/* bowlers div */
+
+.show-player{
+    display: none;
+}
+
+/* inings tag */
+.innings{
+    width: 100%;
+    display: block;
+    padding: .3rem .1rem;
+    margin-top: .4rem;
+    scroll-snap-align: start;
+    border-radius: .6rem;
+    -webkit-border-radius: .6rem;
+    -moz-border-radius: .6rem;
+    -ms-border-radius: .6rem;
+    -o-border-radius: .6rem;
+    padding-left: .5rem;
+}
+.innings .inn{
+    font-family: var(--font3);
+    padding: .2rem;
+    color: rgb(42, 42, 42);
+}
+.active-inn{
+    font-weight: bold;
+    border: 1px solid rgb(233, 233, 233);
+    background-color: rgb(228, 228, 228);
+    box-shadow: 0 0 .3rem rgba(245,255,255,.9),  0 0 .5rem rgba(0,0,0,.5);
+    border-radius: .6rem;
+    -webkit-border-radius: .6rem;
+    -moz-border-radius: .6rem;
+    -ms-border-radius: .6rem;
+    -o-border-radius: .6rem;
+    color: navy!important;
+}
+
+.innings{
+    user-select: none;
+    cursor: pointer;
+}
+.inn2{
+    display: none;
+}
+.inn1{
+    display: block;
+}
+
+
+.inn-hide{
+    display: none;
+}
+
+.ply-info-section{
+    cursor: pointer;
+}
+.outby{
+    display: none;
+    grid-area: outby;
+    text-transform: none !important;
+    font-size: .75rem !important;
+    text-indent: .2rem;
+    color: rgb(243, 34, 34)!important
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+html{
+    /*100%toavoidspacetakenbysearchbarsinmobiles*/
+    height: 100%;
+}
+
+body{
+    height: 100%;
+}
+.black-theme{
+    filter: invert(.9) brightness(1) hue-rotate(170deg);
+    -webkit-filter: invert(.9) brightness(1) hue-rotate(170deg);
+}
+.layout-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 7% 93%;
+    grid-template-columns: .35fr .7fr 1fr;
+    grid-template-areas: 
+    "header header subheader"
+    "navigation content content";
+}
+
+.header{
+    grid-area: header;
+    overflow: hidden;
+
+}
+.sub-header{
+    grid-area: subheader;
+}
+.header-bar{ /*header bar apply on both header and sub-header*/
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(200, 199, 199);
+}
+
+.content{
+    grid-area: content;
+}
+.navigation{
+    background-color: green;
+    grid-area: navigation;
+}
+
