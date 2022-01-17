@@ -32,6 +32,11 @@ let players = [];
 let data = null;
 export default function MatchDetailMining(matchdata){
     data = matchdata;
+    if(!(data.Lu && data.Prns)) {
+        alert('Sorry , This match have not complete data, we are not able  to show it.')
+        return;
+    }
+
     Mine()
 
     import('./match-detail-template.js')
@@ -84,9 +89,19 @@ function Mine(){
     
     match[8] = data.ECo //match sum
 
+    // Recent Over
+    let recentOvr = data.SDInn[inn].Ovr[0].OvT 
+    let ovr = ['dot', 'run', 'run','run', 'four', 'run' ,'six']
+    let rctover = [[],[]]
+    recentOvr.forEach(ball => {
+        let key = isNaN(ball-0) ? ball :  ovr[ball] || 'run'
+        rctover[0].push(key)
+        rctover[1].push(ball)
+    })
+    match[7] = rctover
 
     //TODO : Team batting and bowling recent
-    
+
     const bats = data.SDInn[inn].Bat.map((bat) =>{
         const ply = data.Prns.find( ({Pid}) => Pid == bat.Pid);
         bat.Name = ply.Fn.concat(' ',ply.Ln)
@@ -194,16 +209,7 @@ function Mine(){
     // console.log(players)
 
 
-    // Recent Over
-    let recentOvr = data.SDInn[inn].Ovr[0].OvT 
-    let ovr = ['dot', 'run', 'run','run', 'four', 'run' ,'six']
-    let rctover = [[],[]]
-    recentOvr.forEach(ball => {
-        let key = isNaN(ball-0) ? ball :  ovr[ball] || 'run'
-        rctover[0].push(key)
-        rctover[1].push(ball)
-    })
-    match[7] = rctover
+    
 
     // recent bowler
     const rBowlId = data.SDInn[inn].Com[0].Oid - 1 && data.SDInn[inn].Com[1].Oid

@@ -4,7 +4,6 @@ function MatchesByDateRequest(date , Btn){
     fetch(`/date-by-matches?date=${date}`, {method : "GET"})
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         if( data && Object.keys(data).length)
 	        ManifestMatches(data,Btn)
 	    else

@@ -63,8 +63,8 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
             <div class="strike-player-detail sub-head2 center">
                 <span class="strike-batsman">
                     <span class="strike">*</span>
-                        ${data[6].batsOnCrease[0].Name}
-                        ${data[6].batsOnCrease[0].R || 0}<span class="ball-play">(${data[6].batsOnCrease[0].B || 0})</span>
+                        ${data[6].batsOnCrease[0] && data[6].batsOnCrease[0].Name}
+                        ${data[6].batsOnCrease[0] && (data[6].batsOnCrease[0].R || 0)}<span class="ball-play">(${data[6].batsOnCrease[0] && (data[6].batsOnCrease[0].B || 0)})</span>
                     </span>
 
                 <span class="strike-bowler">

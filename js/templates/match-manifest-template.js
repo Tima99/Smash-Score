@@ -54,16 +54,18 @@ function ManifestMatches(matches, btn) {
         `
         inshortContainer.insertAdjacentHTML('beforeend', dataHtml);
 
-        document.getElementById(`${events.Eid}`).onclick = ()=> ShowMatchDetail(btn, events.Eid)
+        document.getElementById(`${events.Eid}`).addEventListener('click', ()=>{
+            ShowMatchDetail(btn, events.Eid)
+        })
     });
 
 }
 
-function ShowMatchDetail(btn, eid){
-    if(!btn) return;
-    if(!MatchDetailRequest) alert('Something went wrong!\n\nPlease, Refresh Page and try again.')
-    MatchDetailRequest(eid)
+function ShowMatchDetail(btn=null, eid){
     Skeleton1()
+    MatchDetailRequest(eid)
+
+    if(!btn) return;
     if(document.body.clientWidth < 1200){
         matchDetailContainer.classList.toggle('active-content-dis')
         inshortContainer.classList.toggle('active-content-dis')

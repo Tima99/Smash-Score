@@ -17,7 +17,6 @@ const server = http.createServer( (req , res)=>{
     const queryUrl = url.parse(req.url , true).query
     const noQueryUrl = req.url.split('?')[0]
 
-    console.log(req.url);
 
     if(req.url === "/"){
         fs.readFile("./index.html", "UTF-8", function(err, html){
@@ -42,7 +41,6 @@ const server = http.createServer( (req , res)=>{
         fileStream.pipe(res);
     }else if(req.url == "/live-matches")
     {
-        console.log(noQueryUrl);
         LiveMatchesRequest(res)
     }else if(noQueryUrl == "/date-by-matches" ){
         MatchesByDateRequest(queryUrl.date, res)
