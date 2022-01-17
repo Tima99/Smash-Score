@@ -13,10 +13,8 @@ const url       = require('url')
 const PORT      = process.env.PORT || 8000;
 
 const server = http.createServer( (req , res)=>{
-
     const queryUrl = url.parse(req.url , true).query
     const noQueryUrl = req.url.split('?')[0]
-
 
     if(req.url === "/"){
         fs.readFile("./index.html", "UTF-8", function(err, html){
@@ -74,7 +72,7 @@ function MatchDetailRequest(eid,res,sports='cricket'){
 }
 
 function LiveMatchesRequest(res) {
-    console.log(process.env.API_KEY);
+
 	fetch1("https://livescore6.p.rapidapi.com/matches/v2/list-live?Category=cricket", {
 	"method": "GET",
 	"headers": {

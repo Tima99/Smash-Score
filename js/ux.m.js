@@ -26,6 +26,19 @@ function ChangeTheme(btn){
         localStorage.setItem('theme', 0) // if black theme 1 and for light theme its 0
 }
 
+let isLockBar = 0
+function LockOn(btn){
+        isLockBar = 1
+        document.querySelector('.lock-on').style.display = 'block'
+        ScrollUp()
+}
+function LockOff(btn){
+        isLockBar = 0
+        document.querySelector('.lock-on').style.display = 'none'
+        ScrollDown()
+}
+
+
 let prevTouch = null;
 inshortContainer.addEventListener('touchstart', function(e){
     prevTouch = e.changedTouches[0].clientY;
@@ -44,6 +57,7 @@ inshortContainer.addEventListener('touchmove', function(e){
         ScrollUp()
     }
     else{
+        if(!isLockBar)
         ScrollDown()
     }
 })
@@ -58,6 +72,7 @@ matchDetailContainer.addEventListener('touchmove', function(e){
         ScrollUp()
     }
     else{
+        if(!isLockBar)
         ScrollDown()
     }
 })
@@ -69,7 +84,7 @@ inshortContainer.addEventListener('touchend', function(e){
 
 
 function ScrollUp(){
-    layoutContainer.style.gridTemplateRows = '0% 100vh 0%'
+        layoutContainer.style.gridTemplateRows = '0% 100vh 0%'
         calendarIcon.classList.add('move-calendar-icon-hide')
         navigation.classList.remove('navigation-m') // remove navigation
         header[0].classList.remove('header-m') // remove header 

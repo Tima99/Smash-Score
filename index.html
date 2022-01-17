@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="./css/template/match-detail-template.css">
     <link rel="stylesheet" href="./css/template/playing-11.css">
     <link rel="stylesheet" href="./css/template/match-deatil-desktop.css">
-    <link rel="stylesheet" href="./css/media.css">
     <link rel="stylesheet" href="./css/media-desktop.css">
+    <link rel="stylesheet" href="./css/media.css">
 
     <script src="./js/ux.m.js" defer async></script>
     <script src="./js/UI/infinite-dates.js" defer async></script>
@@ -61,7 +61,10 @@
                 </div>
             </label>
             <input type="checkbox" name="theme-change" id="theme-change" onclick="ChangeTheme(this)">
+
+            <img src="./assets/lock.png" alt="🔓" id="lock-off" onclick="LockOn(this)" width="17px" height="17px">
         </div>
+        <img src="./assets/lock.png" alt="🔒" class="lock-on active-icon" onclick="LockOff(this)" width="17px" height="17px">
 
         <!-- content -->
         <div class="content layout-item">
@@ -95,35 +98,6 @@
                     <div class="scale scale-35"><span class="loader"></span></div>
                     <div class="scale scale-75"><span class="loader"></span></div>
                 </div>
-                <div class="skeleton">
-                    <div class="scale"><span class="loader"></span></div>
-                    <div class="scale scale-20"><span class="loader"></span></div>
-                    <div class="scale scale-35"><span class="loader"></span></div>
-                    <div class="scale scale-35"><span class="loader"></span></div>
-                    <div class="scale scale-75"><span class="loader"></span></div>
-                </div>
-                <div class="skeleton">
-                    <div class="scale"><span class="loader"></span></div>
-                    <div class="scale scale-20"><span class="loader"></span></div>
-                    <div class="scale scale-35"><span class="loader"></span></div>
-                    <div class="scale scale-35"><span class="loader"></span></div>
-                    <div class="scale scale-75"><span class="loader"></span></div>
-                </div>
-                <div class="skeleton">
-                    <div class="scale"><span class="loader"></span></div>
-                    <div class="scale scale-20"><span class="loader"></span></div>
-                    <div class="scale scale-35"><span class="loader"></span></div>
-                    <div class="scale scale-35"><span class="loader"></span></div>
-                    <div class="scale scale-75"><span class="loader"></span></div>
-                </div>
-                <div class="skeleton">
-                    <div class="scale"><span class="loader"></span></div>
-                    <div class="scale scale-20"><span class="loader"></span></div>
-                    <div class="scale scale-35"><span class="loader"></span></div>
-                    <div class="scale scale-35"><span class="loader"></span></div>
-                    <div class="scale scale-75"><span class="loader"></span></div>
-                </div>
-
             </div>
             <!-- container for full match description -->
             <div class="full-match-card-container">

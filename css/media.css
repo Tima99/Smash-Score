@@ -12,6 +12,7 @@
 }
 
 @media screen and (max-width:600px){
+    
     .layout-container{
         grid-template-rows: 8% 92%;
         grid-template-columns: .4fr .65fr;
@@ -36,6 +37,9 @@
     .sub-header{
         width: 60%;
         right: 0;
+    }
+    #lock-off{
+        display: block;
     }
 
     .content{
@@ -105,5 +109,11 @@
     .ytb,.ytbo{
         right: 1rem;
     }
+
+    .full-match-card-container{
+        flex: 1 1 !important;
+        min-height: 100vh;
+        background-color: white;
+    }  
 
 }

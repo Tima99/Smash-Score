@@ -8,7 +8,8 @@
 .playing-11-container .play11-contain{
     overflow-x: scroll;
     overflow-y: hidden;
-    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     scroll-snap-type: x mandatory;
     display: flex;
     white-space: nowrap;
@@ -162,6 +163,7 @@
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
+    outline: none;
 }
 .navigate-buttons button.right{
     position: absolute;

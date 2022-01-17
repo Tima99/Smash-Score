@@ -29,6 +29,7 @@ body{
 }
 .sub-header{
     grid-area: subheader;
+    position: relative;
 }
 .header-bar{ /*header bar apply on both header and sub-header*/
     background-color: rgb(247, 247, 247);

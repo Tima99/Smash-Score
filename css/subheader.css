@@ -110,3 +110,20 @@
     margin: 0 .5rem;
     cursor: pointer;
 }
+
+#lock-off{
+    margin: 0 0;
+    display: none;
+    position: absolute;
+    right: .75rem;
+    align-self: center;
+    cursor: pointer;
+}
+.lock-on{
+    position: fixed;
+    top: .65rem;
+    right: .35rem;
+    z-index: 9999;
+    display: none;
+    cursor: pointer;
+}

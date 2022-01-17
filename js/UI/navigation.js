@@ -36,7 +36,7 @@ function Skeleton(){
             <div class="scale scale-75"><span class="loader"></span></div>
         </div>
     `
-    let count = 5
+    let count = 2
     while(count--> 0)
         inshortContainer.insertAdjacentHTML('afterbegin', skeleton);
 }
@@ -51,7 +51,7 @@ function Skeleton1(){
             <div class="scale scale-75"><span class="loader"></span></div>
         </div>
     `
-    let count = 3
+    let count = 2
     while(count--> 0)
         matchDetailContainer.insertAdjacentHTML('afterbegin', skeleton);
 }
