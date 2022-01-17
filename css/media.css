@@ -1,11 +1,11 @@
 
 @media screen and (max-width: 1200px) {
     /* content-container */
-    .full-match-card-container{
+    /* .full-match-card-container{
         flex: 1 1 !important;
         min-height: 100vh;
         background-color: white;
-    }    
+    }     */
     .navigate-buttons button.right{
         left: 77vw;
     }
@@ -111,7 +111,8 @@
     }
 
     .full-match-card-container{
-        flex: 1 1 !important;
+        flex: 1 1!important;
+        width: 100vw;
         min-height: 100vh;
         background-color: white;
     }  

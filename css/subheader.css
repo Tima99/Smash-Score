@@ -121,7 +121,7 @@
 }
 .lock-on{
     position: fixed;
-    top: .65rem;
+    top: 1.5rem;
     right: .35rem;
     z-index: 9999;
     display: none;
