@@ -8,7 +8,7 @@ const navigation       = document.querySelector('.navigation')
 const iconContainer    = document.querySelector('.nav2.icons-container')
 
 let themeSelect = 0;
-let saveTheme = localStorage.getItem('theme').toString() ?? localStorage.getItem('theme').toString() - 0
+let saveTheme = localStorage.getItem('theme') ? localStorage.getItem('theme').toString() - 0 : false;
 themeSelect = saveTheme ? saveTheme : localStorage.setItem('theme', 0)
 
 const setTheme =  ()=>{
