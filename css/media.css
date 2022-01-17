@@ -117,4 +117,8 @@
         background-color: white;
     }  
 
+    .layout-container{
+        overflow: scroll;
+    }
+
 }
