@@ -68,6 +68,9 @@ function ShowMatchDetail(btn=null, eid){
         matchDetailContainer.classList.toggle('active-content-dis')
         inshortContainer.classList.toggle('active-content-dis')
     }
+    else{
+        matchDetailContainer.style.display = 'flex'
+    }
 
     if(!btn) return;
     if(document.body.clientWidth < 1200){
@@ -84,9 +87,6 @@ function ShowMatchDetail(btn=null, eid){
                 iconBtn.backBtn = false
             }
         })
-    }
-    else{
-        matchDetailContainer.style.display = 'flex'
     }
 }
 
