@@ -17,11 +17,11 @@ const Playing11Template = function(players){
     </div>
     
     <div class="navigate-buttons">
-        <button class="left">
+        <button class="left" onclick='left()' >
             <img src="./assets/right-arrow.png" alt="⬅" onclick="left(this)">
         </button>
 
-        <button class="right">
+        <button class="right" onclick='right()' >
             <img src="./assets/right-arrow.png" alt="➡" onclick="right(this)">
         </button>
     </div>
@@ -33,6 +33,7 @@ const Playing11Template = function(players){
     CreatePlay11(players)
     .catch( err => console.log(err))
     .then( data => {
+        setTimeout(()=>{
         if(script)
         document.body.removeChild(script)
         
@@ -40,6 +41,7 @@ const Playing11Template = function(players){
         script.src = './js/UI/playing-11.js'
         script.id= 'playing-11-script'
         document.body.appendChild(script)
+        }, 1500)
     })
     
 }

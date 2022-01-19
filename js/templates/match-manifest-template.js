@@ -2,8 +2,11 @@
 let iconBtn = {
     backBtn : false,
 }
+let firstTime = 1;
 // console.log(MatchDetailRequest);
-function ManifestMatches(matches, btn) {
+function ManifestMatches(matches, btn=liveIcon) {
+    if(btn == null)
+        btn = liveIcon
 
     inshortContainer.innerHTML = ''
     if(iconBtn.backBtn){
@@ -18,16 +21,17 @@ function ManifestMatches(matches, btn) {
         inshortContainer.insertAdjacentHTML('beforeend', dataHtml);
         return;
     }
-    
     matches.forEach((match , index) => {
-
-        const events = match.Events[0]
+        let eventsCount = match.Events.length
+        while(eventsCount-- > 0){
+        const events = match.Events[eventsCount]
         const dataHtml = `
         <div id='${events.Eid}' class='match-box'>
             <div class='head type'>${match.Cnm}</div>
             <div class='head series-sumary'>
-                <span>${match.Snm}</span> |  
-                <span>${events.ErnInf || events.EtTx}</span>
+                <span>${match.Snm}</span>  
+                ${(events.ErnInf || events.EtTx)? '|' : ''}
+                <span>${events.ErnInf || events.EtTx || ''}</span>
             </div>
             <div class='sub-head day'>${events.EpsL}</div>
 
@@ -57,11 +61,12 @@ function ManifestMatches(matches, btn) {
         document.getElementById(`${events.Eid}`).addEventListener('click', ()=>{
             ShowMatchDetail(btn, events.Eid)
         })
+        }
     });
 
 }
 
-function ShowMatchDetail(btn=null, eid){
+function ShowMatchDetail(btn, eid){
     Skeleton1()
     MatchDetailRequest(eid)
     if(document.body.clientWidth < 1200){
@@ -71,11 +76,9 @@ function ShowMatchDetail(btn=null, eid){
     else{
         matchDetailContainer.style.display = 'flex'
     }
-
     if(!btn) return;
     if(document.body.clientWidth < 1200){
         iconBtn.backBtn = 1
-
         btn.firstElementChild.src = './assets/left-turn-arrow.png'
         btn.firstElementChild.classList.add('back-btn')
         btn.addEventListener('click', function(){

@@ -18,9 +18,6 @@ colsHeaders.forEach( header => {
 // navigate buttons
 var leftArr = document.querySelector('.navigate-buttons .left img')
 var rghtArr = document.querySelector('.navigate-buttons .right img')
-leftArr.onclick = left
-rghtArr.onclick = right
-
 var playContainer =  play11Container.querySelectorAll('.play11-contain')
 function left(){
     let playScroll = playContainer[0].className.includes('active-play-11') ? playContainer[0] : playContainer[1]

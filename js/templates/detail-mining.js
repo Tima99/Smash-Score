@@ -77,10 +77,9 @@ function Mine(){
     }
     match[0].head = data.Stg.Cnm // match type
     match[0].venuenm = data.Vnm + ', ' + data.VCnm
-    match[1] = (data.Stg.Snm || data.Stg.Sdn).concat(` | ${data.ErnInf || data.EtTx}`); // match between
+    match[1] = (data.Stg.Snm || data.Stg.Sdn).concat(` | ${data.ErnInf || data.EtTx || ''}`); // match between
 
-    const toss = data.Tpa == 1 ? `${team1Name} won the toss and ${data.TCho==1 ? 'bat' : 'bowl'} first` :  `${team2Name} won the toss and ${data.TCho==1 ? 'bat' : 'bowl'} first` 
-
+    const toss = data.TPa == 1 || data.Tpa == 1 ? `${team1Name} won the toss and ${data.TCho==1 ? 'bat' : 'bowl'} first` :  `${team2Name} won the toss and ${data.TCho==1 ? 'bat' : 'bowl'} first` 
     match[2] = toss;
 
     // recent inings

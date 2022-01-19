@@ -1,6 +1,5 @@
 
 function LiveMatchesRequest(Btn=null){
-
     fetch(`/live-matches`, {method : "GET"})
     .then(res => res.json())
     .then(data => {
