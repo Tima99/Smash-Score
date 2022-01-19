@@ -33,7 +33,10 @@ let data = null;
 export default function MatchDetailMining(matchdata){
     data = matchdata;
     if(!(data.Lu && data.Prns)) {
-        alert('Sorry , This match have not complete data, we are not able  to show it.')
+        const noResultMsg = `
+        <div class='center' style='width:100%;height:100%;font-size:1.1rem;background:whitesmoke;font-family:var(--font1);padding:1rem;text-align:center;'>Sorry , May be match not started yet. <br><br> This match have not complete data, we are not able  to show it.</div>
+        `;
+        matchDetailContainer.innerHTML = noResultMsg;
         return;
     }
 

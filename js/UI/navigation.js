@@ -19,6 +19,9 @@ function ClickDate(btn){
     let date = new Date(btn.innerText).toLocaleDateString().toString().split('/');
     let dateRequireFormat = date[2] + date[0].padStart(2,'0') + date[1].padStart(2 ,'0')
     // require format is yyyymmdd
+    matchDetailContainer.classList.remove('active-content-dis')
+    inshortContainer.classList.add('active-content-dis')
+
     Skeleton()
     MatchesByDateRequest(dateRequireFormat, calendarIcon.firstElementChild)
 }
@@ -105,6 +108,8 @@ liveIcon.addEventListener('click', function(){
     prevActiveDate && prevActiveDate.classList.remove('active-click')
     prevActiveDate = this
     // console.log('Click live');
+    matchDetailContainer.classList.remove('active-content-dis')
+    inshortContainer.classList.add('active-content-dis')
     Skeleton();
     LiveMatchesRequest(liveIcon)
 })

@@ -64,12 +64,15 @@ function ManifestMatches(matches, btn) {
 function ShowMatchDetail(btn=null, eid){
     Skeleton1()
     MatchDetailRequest(eid)
-
-    if(!btn) return;
     if(document.body.clientWidth < 1200){
         matchDetailContainer.classList.toggle('active-content-dis')
         inshortContainer.classList.toggle('active-content-dis')
-        iconBtn.backBtn = true
+    }
+
+    if(!btn) return;
+    if(document.body.clientWidth < 1200){
+        iconBtn.backBtn = 1
+
         btn.firstElementChild.src = './assets/left-turn-arrow.png'
         btn.firstElementChild.classList.add('back-btn')
         btn.addEventListener('click', function(){
