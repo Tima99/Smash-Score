@@ -31,9 +31,9 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
         <div class="match-main">
             <div class="scores sub-head1 flex-col ${whichTeamBat != data[4].nm ? 'flex-col-rev' : ''}">
                 <span class="team t1-name sub-head1">
-                    <div class='teamnm'>${data[4].nm}</div>   
+                    <span class='teamnm'>${data[4].nm}</span>   
                     <span class="seperator">:</span>
-                    <div class="scr">
+                    <span class="scr">
                         <span class="t1-s1 ${
                             data[4].inn2[0] ? 's1-low' : 's1'
                           }">
@@ -42,7 +42,7 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
                         <span class="t1-s2 s2">
                             ${ (data[4].inn2[0] ?? 0) ?  ` & ${data[4].inn2[0]}-${data[4].inn2[1]} (${data[4].inn2[2]})`: (data[4].inn2[3] ?? 0 ? ' & Declared' : '')}  
                         </span>
-                    </div>
+                    </span>
                 </span>
 
                 <span class="team t2-name sub-head1">
