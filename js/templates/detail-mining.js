@@ -107,13 +107,13 @@ function Mine(){
 
     const bats = data.SDInn[inn].Bat.map((bat) =>{
         const ply = data.Prns.find( ({Pid}) => Pid == bat.Pid);
-        bat.Name = ply.Fn.concat(' ',ply.Ln)
+        bat.Name = (ply && ply.Fn.concat(' ',ply.Ln)) || bat.Pid
         return bat;
     });
     
     const bowl = data.SDInn[inn].Bow.map((bowl) =>{
         const ply = data.Prns.find( ({Pid}) => Pid == bowl.Pid);
-        bowl.Name = ply.Fn.concat(' ',ply.Ln)
+        bowl.Name = (ply && ply.Fn.concat(' ',ply.Ln)) || bowl.Pid
         return bowl;
     });
     
@@ -136,7 +136,8 @@ function Mine(){
 
 
         let batInn = inns1[inns1Count].Bat.map((bat) =>{
-            const ply = data.Lu[indexoftbN].Ps.find( ({Pid}) => Pid == bat.Pid);
+            let ply = data.Lu[indexoftbN].Ps.find( ({Pid}) => Pid == bat.Pid);
+            if(!ply) ply={Snm:' ', Fn:' ', Ln:' '};
             bat.Name = ply.Snm || ply.Shnm
             bat.sName = ply.Fn[0].concat(' ', ply.Ln)
             
@@ -155,7 +156,8 @@ function Mine(){
         batsInns[0].Tag  = inns1[inns1Count].Ti
 
         let bowInn = inns1[inns1Count].Bow.map((bowl) =>{
-            const ply = data.Lu[1 - indexoftbN].Ps.find( ({Pid}) => Pid == bowl.Pid);
+            let ply = data.Lu[1 - indexoftbN].Ps.find( ({Pid}) => Pid == bowl.Pid);
+            if(!ply) ply={Snm:' ', Fn:' ', Ln:' '}
             bowl.Name = ply.Snm || ply.Shnm
             bowl.sName = ply.Fn[0].concat(' ', ply.Ln)
             return bowl;
@@ -172,7 +174,8 @@ function Mine(){
         let indexoftbN = data.Lu.findIndex(({Tnb}) => Tnb == tbN)
 
         let batInn = inns2[inns2Count].Bat.map((bat) =>{
-            const ply = data.Lu[indexoftbN].Ps.find( ({Pid}) => Pid == bat.Pid);
+            let ply = data.Lu[indexoftbN].Ps.find( ({Pid}) => Pid == bat.Pid);
+            if(!ply) ply={Snm:' ', Fn:' ', Ln:' '}
             bat.Name = ply.Snm || ply.Shnm
             bat.sName = ply.Fn[0].concat(' ', ply.Ln)
 
@@ -191,7 +194,8 @@ function Mine(){
         batsInns2[0].Tag  = inns2[inns2Count].Ti
 
         let bowInn = inns2[inns2Count].Bow.map((bowl) =>{
-            const ply = data.Lu[1 - indexoftbN].Ps.find( ({Pid}) => Pid == bowl.Pid);
+            let ply = data.Lu[1 - indexoftbN].Ps.find( ({Pid}) => Pid == bowl.Pid);
+            if(!ply) ply={Snm:' ', Fn:' ', Ln:' '}
             bowl.Name = ply.Snm || ply.Shnm
             bowl.sName = ply.Fn[0].concat(' ', ply.Ln)
 

@@ -33,6 +33,8 @@ const Playing11Template = function(players){
     CreatePlay11(players)
     .catch( err => console.log(err))
     .then( data => {
+        layoutContainer.scrollTo(0,0)
+        
         setTimeout(()=>{
         if(script)
         document.body.removeChild(script)
@@ -41,7 +43,7 @@ const Playing11Template = function(players){
         script.src = './js/UI/playing-11.js'
         script.id= 'playing-11-script'
         document.body.appendChild(script)
-        }, 1500)
+        }, 2000)
     })
     
 }
@@ -104,7 +106,7 @@ function CreatePlay11(players){
 
             let loop = playerCounts
             while(loop-->0){
-                const ply = `<div class="ply-info-section ${((bats[loop].LpTx != 'did not bat' && bats[loop].LpTx != 'yet to bat') && bats[loop].LpTx!='not out')? 'outply' : 'notout0'}">
+                const ply = `<div class="ply-info-section ${((bats[loop].LpTx != 'did not bat' && bats[loop].LpTx != 'yet to bat') && bats[loop].LpTx!='not out')? 'outply' : 'notout0'}"  ${bats[loop].Name != ' ' || `style='display:none;'`}>
                                 <div class="ply-nm">${bats[loop].Pl===1 ? `<span style='color:navy;'>* ${bats[loop].sName}</span>` :bats[loop].sName}
                                 </div>
                                 <div class='${((bats[loop].LpTx != 'did not bat' && bats[loop].LpTx != 'yet to bat') && bats[loop].LpTx!='not out')? 'outby' : 'notout'}'>${(bats[loop].LpTx != 'did not bat' && bats[loop].LpTx != 'yet to bat' && bats[loop].LpTx!='not out') ? bats[loop].LpTx : ''}</div>

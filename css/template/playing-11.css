@@ -156,6 +156,7 @@
 .navigate-buttons button{
     border: none;
     background-color: transparent;
+    outline: none;
 }
 .navigate-buttons button.left{
     transform: rotate(180deg);
@@ -163,7 +164,6 @@
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
-    outline: none;
 }
 .navigate-buttons button.right{
     position: absolute;
@@ -176,7 +176,7 @@
     cursor: pointer;
     margin: 0 .2rem;
     padding: .5rem;
-    opacity: .4;
+    opacity: .25;
     background-color: rgba(0,0,0,.4);
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -185,7 +185,7 @@
     -o-border-radius: 50%;
 }
 .navigate-buttons img:hover{
-    opacity: 1;
+    opacity: 0.9;
 }
 
 /* bowlers div */

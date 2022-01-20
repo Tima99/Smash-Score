@@ -9,11 +9,11 @@ function ManifestMatches(matches, btn=liveIcon) {
         btn = liveIcon
 
     inshortContainer.innerHTML = ''
-    if(iconBtn.backBtn){
-        matchDetailContainer.classList.remove('active-content-dis')
-        inshortContainer.classList.add('active-content-dis')
-        DefaultIcon(btn)
-    }
+    // if(iconBtn.backBtn){
+    //     matchDetailContainer.classList.remove('active-content-dis')
+    //     inshortContainer.classList.add('active-content-dis')
+    //     DefaultIcon(btn)
+    // }
     if(matches.length == 0){
         const dataHtml =`
         <div class='center' style='width:100%;height:100%;font-weight:bold;font-size:1.1rem;text-align:center;font-family:var(--font2);'>No Result Found!</div>
