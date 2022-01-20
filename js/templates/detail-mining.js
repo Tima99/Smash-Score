@@ -32,7 +32,6 @@ let players = [];
 let data = null;
 export default function MatchDetailMining(matchdata){
     data = matchdata;
-
     if(!(data.Lu && data.Prns)) {
         const noResultMsg = `
         <div class='center' style='width:100%;height:100%;font-size:1.1rem;background:whitesmoke;font-family:var(--font1);padding:1rem;text-align:center;'>Sorry , May be match not started yet. <br><br> This match have not complete data, we are not able  to show it.</div>
@@ -93,15 +92,16 @@ function Mine(){
     match[8] = data.ECo //match sum
 
     // Recent Over
-    let recentOvr = data.SDInn[inn].Ovr[0].OvT 
+    let recentOvr = data.SDInn[inn].Ovr && data.SDInn[inn].Ovr[0].OvT 
     let ovr = ['dot', 'run', 'run','run', 'four', 'run' ,'six']
     let rctover = [[],[]]
-    recentOvr.forEach(ball => {
+    recentOvr && recentOvr.forEach(ball => {
         let key = isNaN(ball-0) ? ball :  ovr[ball] || 'run'
         rctover[0].push(key)
         rctover[1].push(ball)
     })
-    match[7] = rctover
+
+    match[7] = rctover[0].length ? rctover : null
 
     //TODO : Team batting and bowling recent
 
@@ -213,11 +213,11 @@ function Mine(){
 
     
     // recent bowler
-    const rBowlId = data.SDInn[inn].Com[0].Oid - 1 && data.SDInn[inn].Com[1].Oid
+    const rBowlId = data.SDInn[inn].Com && data.SDInn[inn].Com[0].Oid - 1 && data.SDInn[inn].Com[1].Oid
     const rBowl   = bowl.find( ({Pid}) => Pid == rBowlId)
     let ovrBallCount = (data.SDInn[inn].Ov * 10 % 10) 
     if(rBowl)
-    rBowl.Ov = (rBowl.Ov) + ( ovrBallCount/10 )
+    rBowl.Ov = rBowl.Ov + ovrBallCount/10 
     // console.log(rBowl);
 
     match[6].strikeBowler = rBowl;
@@ -248,8 +248,8 @@ function Mine(){
     match[6].lstWk= batsOut 
 
     // commentary
-    const comentary = [data.SDInn[inn].Com[1]]
-    comentary.map( obj => {
+    const comentary = data.SDInn[inn].Com && [data.SDInn[inn].Com[1]]
+    comentary && comentary.map( obj => {
         let bowler  = data.Prns.find(({Pid}) => Pid == obj.Oid)
         bowler = bowler && bowler.Fn.concat(' ', bowler.Ln)
         let batsman = data.Prns.find(({Pid}) => Pid == obj.Aid)
@@ -258,5 +258,8 @@ function Mine(){
         obj.Oid = bowler  || null
         obj.Aid = batsman || null
     })
+    if(comentary)
     match.push(comentary[0])
+    else
+    match.push(null)
 }

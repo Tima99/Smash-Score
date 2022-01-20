@@ -61,7 +61,7 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
                 </span>
             </div>
             <div class="strike-player-detail sub-head2 center">
-                <span class="strike-batsman">
+                <span class="strike-batsman" ${data[6].strikeBowler ? '' : `style='border-right:none'`}>
                     <span class="strike">*</span>
                         ${data[6].batsOnCrease[0] && data[6].batsOnCrease[0].sName || ''}
                         ${data[6].batsOnCrease[0] && (data[6].batsOnCrease[0].R || 0)}<span class="ball-play">(${data[6].batsOnCrease[0] && (data[6].batsOnCrease[0].B || 0)})</span>
@@ -85,6 +85,8 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
         <div class="match-submation sub-head4">${data[8]}</div>
     </div>
 
+    ${data[data.length-1] ?
+        `
     <div class="commentary-container">
         <div class="over-com-contain 89.6">
             <span class="over-ball sub-head1">${data[data.length-1].Ov}</span>
@@ -97,14 +99,15 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
                 </span>        
             </div>
         </div>    
-    </div>
+    </div> ` : ''
+    }
 </div>
     `;
 
   matchDetailContainer.innerHTML = template;
 
   
-  let balls = data[7][1].length > 6 ? data[7][1].length : 6;
+  let balls = !data[7] ? 0 : (data[7][1].length > 6 ? data[7][1].length : 6);
   let rctBox = document.querySelector('.recent-ovr-container .recent-ovr')
   while(balls-->0){
       let rctBallEle = `<span class="rpb b${balls} ${ data[7][0][balls] || (balls == data[7][0].length ? 'play-ball' : '') }">${data[7][1][balls] ?? ''}</span>`
