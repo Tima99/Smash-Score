@@ -215,9 +215,9 @@ function Mine(){
     // recent bowler
     const rBowlId = data.SDInn[inn].Com && data.SDInn[inn].Com[0].Oid - 1 && data.SDInn[inn].Com[1].Oid
     const rBowl   = bowl.find( ({Pid}) => Pid == rBowlId)
-    let ovrBallCount = (data.SDInn[inn].Ov * 10 % 10) 
-    if(rBowl)
-    rBowl.Ov = rBowl.Ov + ovrBallCount/10 
+    // let ovrBallCount = (data.SDInn[inn].Ov * 10 % 10) 
+    // if(rBowl)
+    // rBowl.Ov = rBowl.Ov + ovrBallCount/10 
     // console.log(rBowl);
 
     match[6].strikeBowler = rBowl;
