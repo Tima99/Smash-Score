@@ -32,7 +32,6 @@ let players = [];
 let data = null;
 export default function MatchDetailMining(matchdata){
     data = matchdata;
-    console.log(data);
 
     if(!(data.Lu && data.Prns)) {
         const noResultMsg = `
