@@ -16,13 +16,15 @@ function ClickDate(btn){
     prevActiveIcon.classList.remove('active-icon')
 
     // request to api by date
-    let date = new Date(btn.innerText).toLocaleDateString().toString().split('/');
+    let date = new Date(btn.innerText).toLocaleDateString().toString().replaceAll('-','/').split('/');
+    // console.log(date);
     let dateRequireFormat = date[2] + date[0].padStart(2,'0') + date[1].padStart(2 ,'0')
     // require format is yyyymmdd
     matchDetailContainer.classList.remove('active-content-dis')
     inshortContainer.classList.add('active-content-dis')
 
     Skeleton()
+    // console.log(dateRequireFormat);
     MatchesByDateRequest(dateRequireFormat, calendarIcon.firstElementChild)
 }
 
