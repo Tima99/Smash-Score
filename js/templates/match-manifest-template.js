@@ -16,7 +16,7 @@ function ManifestMatches(matches, btn=liveIcon) {
     }
     if(matches.length == 0){
         const dataHtml =`
-        <div class='center' style='width:100%;height:100%;font-weight:bold;font-size:1.1rem;'>No Result Found!</div>
+        <div class='center' style='width:100%;height:100%;font-weight:bold;font-size:1.1rem;text-align:center;font-family:var(--font2);'>No Result Found!</div>
         `
         inshortContainer.insertAdjacentHTML('beforeend', dataHtml);
         return;

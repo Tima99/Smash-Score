@@ -30,10 +30,10 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
         <div class="match-status sub-head3">${data[3]}</div>
         <div class="match-main">
             <div class="scores sub-head1 flex-col ${whichTeamBat != data[4].nm ? 'flex-col-rev' : ''}">
-                <span class="team t1-name sub-head1">
-                    <span class='teamnm'>${data[4].nm}</span>   
+                <span class="team t1-name sub-head1" style='font-weight:${whichTeamBat == data[4].nm ? 'bold' : 'normal'}'>
+                    <div class='teamnm'>${data[4].nm}</div>   
                     <span class="seperator">:</span>
-                    <span class="scr">
+                    <div class="scr">
                         <span class="t1-s1 ${
                             data[4].inn2[0] ? 's1-low' : 's1'
                           }">
@@ -42,10 +42,10 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
                         <span class="t1-s2 s2">
                             ${ (data[4].inn2[0] ?? 0) ?  ` & ${data[4].inn2[0]}-${data[4].inn2[1]} (${data[4].inn2[2]})`: (data[4].inn2[3] ?? 0 ? ' & Declared' : '')}  
                         </span>
-                    </span>
+                    </div>
                 </span>
 
-                <span class="team t2-name sub-head1">
+                <span class="team t2-name sub-head1" style='font-weight:${whichTeamBat == data[5].nm ? 'bold' : 'normal'}'>
                     <div class='teamnm'>${data[5].nm}</div>  
                     <span class="seperator">:</span>
                     <div class="scr">
@@ -63,12 +63,12 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
             <div class="strike-player-detail sub-head2 center">
                 <span class="strike-batsman">
                     <span class="strike">*</span>
-                        ${data[6].batsOnCrease[0] && data[6].batsOnCrease[0].Name}
+                        ${data[6].batsOnCrease[0] && data[6].batsOnCrease[0].sName || ''}
                         ${data[6].batsOnCrease[0] && (data[6].batsOnCrease[0].R || 0)}<span class="ball-play">(${data[6].batsOnCrease[0] && (data[6].batsOnCrease[0].B || 0)})</span>
                     </span>
 
                 <span class="strike-bowler">
-                ${data[6].strikeBowler ? `*${data[6].strikeBowler.Name || ''}
+                ${data[6].strikeBowler ? `*${data[6].strikeBowler.sName || ''}
                 <span class="wkn">${data[6].strikeBowler.Wk ?? '0'}</span>-<span class="runb">${data[6].strikeBowler.R ?? '0'}(${data[6].strikeBowler.Ov})</span></span>`
                 : ''}
             </div>
@@ -80,7 +80,7 @@ const MatchDetailTemplate = function (data, eid , whichTeamBat) {
         </div>
         <div class="last-wk-container sub-head3">
             <span class="last-wk-tag">Last Wicket : </span>
-            <span className="lstwk">${data[6].lstWk.length ? `${data[6].lstWk[0].Name} ${data[6].lstWk[0].R}(${data[6].lstWk[0].B}) ${data[6].lstWk[0].LpTx}` : ''}</span>
+            <span className="lstwk">${(data[6].lstWk && (data[6].lstWk.length ? `${data[6].lstWk[0].Name} ${data[6].lstWk[0].R}(${data[6].lstWk[0].B}) ${data[6].lstWk[0].LpTx}` : '') )|| '- -'}</span>
         </div>
         <div class="match-submation sub-head4">${data[8]}</div>
     </div>

@@ -32,6 +32,8 @@ let players = [];
 let data = null;
 export default function MatchDetailMining(matchdata){
     data = matchdata;
+    console.log(data);
+
     if(!(data.Lu && data.Prns)) {
         const noResultMsg = `
         <div class='center' style='width:100%;height:100%;font-size:1.1rem;background:whitesmoke;font-family:var(--font1);padding:1rem;text-align:center;'>Sorry , May be match not started yet. <br><br> This match have not complete data, we are not able  to show it.</div>
@@ -210,14 +212,15 @@ function Mine(){
     players = playing11
     // console.log(players)
 
-
     
-
     // recent bowler
     const rBowlId = data.SDInn[inn].Com[0].Oid - 1 && data.SDInn[inn].Com[1].Oid
     const rBowl   = bowl.find( ({Pid}) => Pid == rBowlId)
+    let ovrBallCount = (data.SDInn[inn].Ov * 10 % 10) 
     if(rBowl)
-    rBowl.Ov = rBowl.Ov + recentOvr.length/10
+    rBowl.Ov = (rBowl.Ov) + ( ovrBallCount/10 )
+    // console.log(rBowl);
+
     match[6].strikeBowler = rBowl;
 
 
@@ -227,9 +230,9 @@ function Mine(){
     match[6].batsOnCrease = batsOnCrease
 
     // last wicket 
-    const lstWk = data.SDInn[inn].FoW[0]
-    const batsOut = [bats.find(({Pid}) => Pid == lstWk.Pid)]
-    batsOut.map( (obj)=>{
+    const lstWk = data.SDInn[inn].FoW && data.SDInn[inn].FoW[0]
+    const batsOut = lstWk && [bats.find(({Pid}) => Pid == lstWk.Pid)]
+    batsOut && batsOut.map( (obj)=>{
         let field = data.Prns.find( ({Pid}) => Pid == obj.Fid)
         obj.Fid = field && field.Fn[0].concat(' ', field.Ln)
         // console.log(field , obj , field);
